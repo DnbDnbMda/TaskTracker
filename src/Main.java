@@ -15,21 +15,24 @@ public class Main {
         while (true) {
             if (scanner.hasNextInt()) {
                 userSelectionForm = scanner.nextInt();
-                if (checkCorrectUserInputFormMain(userSelectionForm)) {
-                    if (userSelectionForm == 1) {
+                switch (userSelectionForm) {
+                    case (1):
                         printFormNumberSteps(scanner);
-                    } else if (userSelectionForm == 2) {
+                        break;
+                    case (2):
                         printFormStatistics(scanner);
-                    } else if (userSelectionForm == 3) {
+                        break;
+                    case (3):
                         printFormGoal(scanner);
-                    } else if (userSelectionForm == 4) {
+                        break;
+                    case (4):
                         printFormExit();
                         break;
-                    }
-                } else {
-                    printFormMainErrorInput();
-                    continue;
+                    default:
+                        printFormMainErrorInput();
+                        break;
                 }
+                if (userSelectionForm == 4) break;
             } else {
                 printFormMainErrorInput();
                 scanner.next();
@@ -148,7 +151,7 @@ public class Main {
     public static void printFormGoal(Scanner scanner) {
         System.out.println("-------------------------------");
         System.out.println("Изменение целевого значения количества шагов");
-        System.out.println("Текущее целевое значения количества шагов: " + stepTracker.targetNumberOfSteps);
+        System.out.println("Текущее целевое значения количества шагов: " + stepTracker.getTargetNumber());
         System.out.println("Укажите новое целевое значения количества шагов:");
 
         while (true) {

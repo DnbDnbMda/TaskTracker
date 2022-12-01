@@ -2,21 +2,10 @@ import java.util.Arrays;
 import java.util.OptionalInt;
 
 public class StepTracker {
-    public int targetNumberOfSteps = 10000;
+    private int targetNumberOfSteps = 10000;
     final static int NUMBER_DAYS = 30;
     final static int NUMBER_MONTH = 12;
-    public int[][] numberOfStepsByDay = new int[NUMBER_MONTH][NUMBER_DAYS];
-
-    //Присваиваем всем дням количество шагов ноль
-    StepTracker() {
-        // + для тетсирования, перед сдачей удалить
-        numberOfStepsByDay[0][0] = 5000;
-        numberOfStepsByDay[0][1] = 15000;
-        numberOfStepsByDay[0][2] = 20000;
-        numberOfStepsByDay[0][10] = 20000;
-        numberOfStepsByDay[0][29] = 5000;
-        // - для тетсирования, перед сдачей удалить
-    }
+    private int[][] numberOfStepsByDay = new int[NUMBER_MONTH][NUMBER_DAYS];
 
     // Записывает новое количество шагов;
     public void setNumberOfSteps(int numberOfMonth, int numberOfDay, int numberOfSteps) {
@@ -93,4 +82,10 @@ public class StepTracker {
         double result = Math.ceil(longValue * scale) / scale;
         return result;
     }
+    // возвращает целевое количество шагов
+    public int getTargetNumber(){
+        return targetNumberOfSteps;
+    }
+
+
 }
